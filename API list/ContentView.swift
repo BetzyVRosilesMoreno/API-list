@@ -21,11 +21,11 @@ struct ContentView: View {
         }
         .task {
             await getCategories()
-                .alert(isPresented: $showingAlert) {
-                    Alert(title: Text("Loading Error"),
-                          message: Text("There was a problem loading the API catagories"),
-                          dismissButton: .default(Text("OK")))
-                }
+        }
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("Loading Error"),
+                  message: Text("There was a problem loading the API catagories"),
+                  dismissButton: .default(Text("OK")))
         }
     }
     
@@ -43,11 +43,13 @@ struct ContentView: View {
         showingAlert = true
     }
 }
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+
 struct Categories: Codable {
     var categories: [String]
 }
